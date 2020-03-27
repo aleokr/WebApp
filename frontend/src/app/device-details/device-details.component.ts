@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-automat-details',
+  selector: 'app-device-details',
   templateUrl: './device-details.component.html',
   styleUrls: ['./device-details.component.css']
 })
 export class DeviceDetailsComponent implements OnInit {
 
-  details = {
-    count_of_products : 5,
-    max_price : 10.5,
-    min_price : 2,
-    date_of_last_transaction: '26/03/2020'
+  constructor(private router: Router) {
   }
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    this.router.navigate(['/login']);
   }
 
 }

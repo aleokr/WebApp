@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
@@ -7,36 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  device1 = {
-    id: 1,
-    name: 'First Device',
-    location: {
-      address: 'Polna 8',
-      city: 'Warszawa',
-      country: 'Polska'
-    }
+  constructor(private router: Router) {
   }
-  device2 = {
-    id: 2,
-    name: 'Second Device',
-    location: {
-      address: 'Cicha 8',
-      city: 'Warszawa',
-      country: 'Polska'
-    }
-  }
-  device3 = {
-    id: 3,
-    name: 'Third Device',
-    location: {
-      address: 'Jasna 8',
-      city: 'Warszawa',
-      country: 'Polska'
-    }
-  }
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  details(): void {
+    this.router.navigate(['/details']);
+  }
+
+  logout(): void {
+    this.router.navigate(['/login']);
   }
 
 }
