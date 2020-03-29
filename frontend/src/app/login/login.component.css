@@ -1,0 +1,24 @@
+button {
+  background: #e90d10;
+  width: 100px;
+}
+input{
+  width: 250px;
+}
+.centered {
+  position: absolute; /* or absolute */
+  top: 30%;
+  left: 30%;
+}
+.form_div {
+  position: relative;
+  left: 400px;
+  top: 250px;
+  height: 500px;
+  width: 300px;
+}
+.main_div {
+  position: relative;
+  left: 200px;
+  top: 150px;
+}
