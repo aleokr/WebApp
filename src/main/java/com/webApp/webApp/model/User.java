@@ -29,7 +29,7 @@ public class User {
 
     @Column(name = "surname")
     private String surname;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Device> devices;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+//    private List<Device> devices;
 }

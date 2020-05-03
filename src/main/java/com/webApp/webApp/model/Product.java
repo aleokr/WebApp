@@ -28,4 +28,7 @@ public class Product {
 
     @Column (name = "expire_date")
     private Timestamp expireDate;
+
+    @Column(name = "device_id")
+    private Integer deviceId;
 }

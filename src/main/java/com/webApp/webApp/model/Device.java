@@ -21,8 +21,8 @@ public class Device {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "status")
-    private Boolean status;
+    @Column(name = "is_active")
+    private Boolean isActive;
 
     @Column(name = "max_capcity")
     private Integer maxCapacity;
@@ -30,6 +30,9 @@ public class Device {
     @Column(name = "capcity")
     private Integer capacity;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "device")
-    private List<Product> products;
+    @Column(name = "user_id")
+    private Integer userId;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "device")
+//    private List<Product> products;
 }
