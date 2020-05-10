@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "device")
 @Table(name = "devices")
@@ -15,6 +14,7 @@ import java.util.List;
 public class Device {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -32,7 +32,4 @@ public class Device {
 
     @Column(name = "user_id")
     private Integer userId;
-//
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "device")
-//    private List<Product> products;
 }
