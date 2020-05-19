@@ -7,6 +7,9 @@ import {DeviceDetailsComponent} from './components/device-details/device-details
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './components/app/app.component';
 import {HttpClientModule} from "@angular/common/http";
+import {EditDeviceComponent} from "./components/edit-device/edit-device.component";
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     MainPageComponent,
     DeviceDetailsComponent,
-    AppComponent
+    AppComponent,
+    EditDeviceComponent,
+    EditProductComponent,
+    ProductsComponent
   ],
   imports: [
     HttpClientModule,
@@ -23,7 +29,10 @@ import {HttpClientModule} from "@angular/common/http";
       {path: 'details', component: DeviceDetailsComponent},
       {path: '', component: LoginComponent},
       {path: 'user', component: MainPageComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {path: 'products', component: ProductsComponent},
+      {path: 'edit/device', component: EditDeviceComponent},
+      {path: 'edit/product', component: EditProductComponent}
 
     ])
   ],

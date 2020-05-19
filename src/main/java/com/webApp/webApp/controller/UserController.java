@@ -20,7 +20,7 @@ public class UserController {
         return userService.getUserInfoById(id);
     }
 
-    @PutMapping(path = "/updateUser")
+    @PostMapping(path = "/updateUser")
     public void updateUser(@RequestBody UserDTO dto) {
         userService.updateUser(dto);
     }

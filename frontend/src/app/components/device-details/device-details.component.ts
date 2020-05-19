@@ -18,4 +18,12 @@ export class DeviceDetailsComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  edit(): void {
+    this.router.navigate(['/edit/device']);
+  }
+
+  list(): void{
+    this.router.navigate(['/products']);
+  }
+
 }
