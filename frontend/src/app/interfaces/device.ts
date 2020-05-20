@@ -4,4 +4,5 @@ export interface Device {
   isActive?: boolean;
   maxCapacity?: number;
   capacity?: number;
+  userId?: number;
 }

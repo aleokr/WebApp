@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
+import {Device} from "../../interfaces/device";
+import {DeviceService} from "../../services/device.service";
 
 @Component({
   selector: 'app-main-page',
@@ -8,10 +11,13 @@ import {Router} from "@angular/router";
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private router: Router) {
+  allDevice$: Observable<Device>;
+
+  constructor(private router: Router, private deviceService: DeviceService) {
   }
 
   ngOnInit(): void {
+    this.allDevice$ = this.deviceService.getDevicesList(1);
   }
 
   details(): void {

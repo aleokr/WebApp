@@ -26,10 +26,10 @@ public class UserController {
     }
 
     @GetMapping(path = "/authenticate/{login}/{password}")
-    public User authenticateUser(@PathVariable String login, @PathVariable  String password) {
-        try{
+    public User authenticateUser(@PathVariable String login, @PathVariable String password) {
+        try {
             return userService.authenticate(login, password);
-        }catch(Exception e ){
+        } catch (Exception e) {
             return null;
         }
     }

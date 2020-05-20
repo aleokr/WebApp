@@ -19,7 +19,7 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
-    public void updateUser(UserDTO dto){
+    public void updateUser(UserDTO dto) {
         User user = userRepository.getOne(dto.getId());
         user.setLogin(dto.getLogin());
         user.setName(dto.getName());
@@ -29,7 +29,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User authenticate(String login, String password){
+    public User authenticate(String login, String password) {
         return userRepository.findById(userRepository.authenticate(login, password)).get();
     }
 }

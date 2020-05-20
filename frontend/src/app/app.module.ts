@@ -8,8 +8,8 @@ import {RouterModule} from '@angular/router';
 import {AppComponent} from './components/app/app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {EditDeviceComponent} from "./components/edit-device/edit-device.component";
-import { EditProductComponent } from './components/edit-product/edit-product.component';
-import { ProductsComponent } from './components/products/products.component';
+import {EditProductComponent} from './components/edit-product/edit-product.component';
+import {ProductsComponent} from './components/products/products.component';
 
 
 @NgModule({

@@ -12,6 +12,6 @@ export class LoginService{
   constructor(private http: HttpClient ) {}
 
   public authenticateUser(login: string, password: string): Observable<User> {
-    return this.http.get<User>('http://localhost:8443/user/authenticate/'+login+'/'+password);
+    return this.http.get<User>('http://localhost:8443/user/authenticate/' + login + '/' + password);
   }
 }

@@ -28,15 +28,22 @@ public class ProductService {
         return productRepository.getProductsByDeviceId(deviceId);
     }
 
-    public void changePriceOfProduct(Integer id, Float price) {
-        productRepository.changePriceOfProduct(id, price);
+    public Product updateProduct(ProductDTO dto) {
+        Product product = productRepository.findById(dto.getId()).get();
+        product.setName(dto.getName());
+        product.setPrice(dto.getPrice());
+        product.setDescription(dto.getDescription());
+        product.setExpireDate(dto.getExpireDate());
+
+        productRepository.save(product);
+        return product;
     }
 
     public void deleteProduct(Integer id) {
         productRepository.deleteProduct(id);
     }
 
-    public void addUser(ProductDTO dto){
+    public void addProduct(ProductDTO dto) {
         Product product = new Product();
         product.setName(dto.getName());
         product.setPrice(dto.getPrice());

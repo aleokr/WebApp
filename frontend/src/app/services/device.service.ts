@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Device} from "../interfaces/device";
 
@@ -11,8 +11,8 @@ export class DeviceService {
   constructor(private http: HttpClient) {
   }
 
-  public getDevicesList(userId: number): Observable<Device> {
-    return this.http.get<Device>('http://localhost:8443/device/getDevicesByUserId/' + userId);
+  public getDevicesList(userId: number): Observable<Device[]> {
+    return this.http.get<Array<Device>>('http://localhost:8443/device/getDevicesByUserId/' + userId);
   }
 
   public getDevice(deviceId: number): Observable<Device> {

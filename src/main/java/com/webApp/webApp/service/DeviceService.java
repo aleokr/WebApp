@@ -20,15 +20,16 @@ public class DeviceService {
     public Device getDeviceInfoById(Integer id) {
         return deviceRepository.findById(id).get();
     }
+
     public List<Device> getDevicesByUserId(Integer userId) {
         return deviceRepository.getDevicesByUserId(userId);
     }
 
-    public void deleteDevice(Integer deviceId){
+    public void deleteDevice(Integer deviceId) {
         deviceRepository.deleteById(deviceId);
     }
 
-    public void addDevice(DeviceDTO dto){
+    public void addDevice(DeviceDTO dto) {
         Device device = new Device();
         device.setAddress(dto.getAddress());
         device.setIsActive(dto.getIsActive());
@@ -37,5 +38,15 @@ public class DeviceService {
         device.setUserId(dto.getUserId());
 
         deviceRepository.save(device);
+    }
+
+    public Device updateDevice(DeviceDTO dto) {
+        Device device = deviceRepository.findById(dto.getId()).get();
+        device.setMaxCapacity(dto.getMaxCapacity());
+        device.setAddress(dto.getAddress());
+        device.setIsActive(dto.getIsActive());
+
+        deviceRepository.save(device);
+        return device;
     }
 }

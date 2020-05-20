@@ -6,9 +6,10 @@ import {Product} from "../interfaces/product";
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService{
+export class ProductService {
 
-  constructor(private http: HttpClient ) {}
+  constructor(private http: HttpClient) {
+  }
 
   public getProductsList(deviceId: number): Observable<Product> {
     return this.http.get<Product>('http://localhost:8443/product/getProductsByDeviceId/' + deviceId);

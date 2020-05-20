@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DeviceDTO {
-
+    private Integer id;
     private String address;
     private Boolean isActive;
     private Integer maxCapacity;

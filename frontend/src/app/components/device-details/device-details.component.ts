@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Observable} from "rxjs";
+import {Device} from "../../interfaces/device";
 
 @Component({
   selector: 'app-device-details',
@@ -7,6 +9,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./device-details.component.css']
 })
 export class DeviceDetailsComponent implements OnInit {
+
+  device$: Observable<Device>;
 
   constructor(private router: Router) {
   }
@@ -22,7 +26,7 @@ export class DeviceDetailsComponent implements OnInit {
     this.router.navigate(['/edit/device']);
   }
 
-  list(): void{
+  list(): void {
     this.router.navigate(['/products']);
   }
 

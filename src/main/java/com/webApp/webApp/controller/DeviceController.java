@@ -34,9 +34,10 @@ public class DeviceController {
     public void addDevice(@RequestBody DeviceDTO dto) {
         deviceService.addDevice(dto);
     }
-    @PostMapping(path = "/updateDevice")
-    public void updateDevice(@RequestBody DeviceDTO dto) {
 
+    @PostMapping(path = "/updateDevice")
+    public Device updateDevice(@RequestBody DeviceDTO dto) {
+        return deviceService.updateDevice(dto);
     }
 
 }
