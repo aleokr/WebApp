@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/device")
+@CrossOrigin
 public class DeviceController {
 
     @Autowired

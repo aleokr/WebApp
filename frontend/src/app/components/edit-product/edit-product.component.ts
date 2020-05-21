@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {Product} from "../../interfaces/product";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-edit-product',
@@ -10,9 +11,18 @@ import {Product} from "../../interfaces/product";
 })
 export class EditProductComponent implements OnInit {
 
-  product$: Observable<Product>;
+  product: Product;
+  productId: number;
 
-  constructor(private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {
+    this.route.params.subscribe(params => {
+      this.productId = params['id'];
+    });
+    this.productService.getProduct(this.productId).subscribe(
+      (res: Product) => {
+        this.product = res;
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -20,5 +30,12 @@ export class EditProductComponent implements OnInit {
 
   logout(): void {
     this.router.navigate(['/login']);
+  }
+
+  save() : void{
+    console.log(this.product.name);
+    this.productService.updateProduct(this.product);
+    this.router.navigate(['/products/'+this.product.deviceId]);
+
   }
 }

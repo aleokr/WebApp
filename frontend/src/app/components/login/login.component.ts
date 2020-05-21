@@ -11,7 +11,7 @@ import {User} from "../../interfaces/user";
 })
 export class LoginComponent implements OnInit {
 
-  user$: User;
+  user: User;
 
   constructor(private router: Router, private loginService: LoginService) {
 
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   login(login: string, password: string): void {
     this.loginService.authenticateUser(login, password).subscribe(data => {
-      console.log(data.login);
-      this.router.navigate(['/user']);
+      this.user = data;
+      this.router.navigate(['/user/'+this.user.id]);
     });
   }
 

@@ -3,15 +3,17 @@
     <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
   </div>
   <div class="row">
-    <h2>Urządzenie numer 1 </h2>
-    <div>Status urządzenia: aktywne</div>
-    <div>Ilość dostępnych produktów:14</div>
-    <div>Maksymalna cena: 13.2</div>
-    <div>Minimalna cena: 13.2</div>
-    <div>Data ostatniej transakcji: 27/03/2020</div>
+    <h2>Numer urządzenia: {{this.device.id}}</h2>
+    <div>Status urządzenia: {{device.isActive}}</div>
+    <div>Ilość dostępnych produktów: {{device.capacity}}</div>
+    <div>Maksymalna liczba produktów: {{device.maxCapacity}}</div>
+    <div>Adres urządzenia: {{device.address}}</div>
     <div>
-      <button class="btn btn-danger btn-block" type="button" (click)="edit()" name="Szczegóły urządzenia">Edycja urządzenia</button>
-      <button class="btn btn-danger btn-block" type="button" (click)="list()" name="Lista produktów">Lista produktów</button>
+      <button class="btn btn-danger btn-block" type="button" (click)="edit(device.id)" name="Szczegóły urządzenia">Edycja
+        urządzenia
+      </button>
+      <button class="btn btn-danger btn-block" type="button" (click)="list(device.id)" name="Lista produktów">Lista produktów
+      </button>
     </div>
   </div>
 

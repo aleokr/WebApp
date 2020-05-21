@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from "rxjs";
 import {Device} from "../../interfaces/device";
+import {DeviceService} from "../../services/device.service";
 
 @Component({
   selector: 'app-device-details',
@@ -10,9 +11,18 @@ import {Device} from "../../interfaces/device";
 })
 export class DeviceDetailsComponent implements OnInit {
 
-  device$: Observable<Device>;
+  device: Device;
+  deviceId: number;
 
-  constructor(private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private deviceService: DeviceService) {
+    this.route.params.subscribe(params => {
+      this.deviceId = params['deviceId'];
+    });
+    this.deviceService.getDevice(this.deviceId).subscribe(
+      (res: Device) => {
+        this.device = res;
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -22,12 +32,12 @@ export class DeviceDetailsComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  edit(): void {
-    this.router.navigate(['/edit/device']);
+  edit(deviceId : number): void {
+    this.router.navigate(['/edit/device/'+deviceId]);
   }
 
-  list(): void {
-    this.router.navigate(['/products']);
+  list(deviceId : number): void {
+    this.router.navigate(['/products/'+deviceId]);
   }
 
 }

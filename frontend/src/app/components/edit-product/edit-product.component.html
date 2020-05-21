@@ -8,29 +8,29 @@
     <form role="form">
       <div class="form-group">
         <h5>Numer id produktu</h5>
-        <output #id class="form-control" type="text" required="true">id produktu</output>
+        <label #id class="form-control" type="text" required="true" >{{product.id}}</label>
       </div>
       <div class="form-group">
         <h5>Nazwa produktu</h5>
-        <input #name class="form-control" type="text" required="true">
+        <input [(ngModel)]="product.name" name ="product.name" class="form-control" type="text" required="true" >
       </div>
       <div class="form-group">
         <h5>Opis produktu</h5>
-        <input #description class="form-control" type="text" required="true">
+        <input [(ngModel)]="product.description" name ="product.description" class="form-control" type="text" required="true" >
       </div>
       <div class="form-group">
         <h5>Cena</h5>
-        <input #price class="form-control" type="text" required="true">
+        <input [(ngModel)]="product.price" name ="product.price" class="form-control" type="text" required="true">
       </div>
       <div class="form-group">
         <h5>Data ważności</h5>
-        <input #expireDate class="form-control" type="text" required="true">
+        <input [(ngModel)]="product.expireDate" name ="product.expireDate"  class="form-control" type="text" required="true">
       </div>
       <div class="form-group">
         <h5>Numer id urządzenia</h5>
-        <output #id class="form-control" type="text" required="true">id urządzenia</output>
+        <label #id class="form-control" type="text" required="true">{{product.deviceId}}</label>
       </div>
-      <button class="btn btn-danger btn-block" type=button  name="Zapisz zmiany">Zapisz zmiany</button>
+      <button class="btn btn-danger btn-block" type="button" (click)="save()" name="Zapisz zmiany">Zapisz zmiany</button>
     </form>
   </div>
 </div>

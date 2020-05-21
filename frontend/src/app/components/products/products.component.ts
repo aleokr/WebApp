@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../interfaces/product";
 import {Observable} from "rxjs";
+import {Device} from "../../interfaces/device";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-products',
@@ -10,9 +12,18 @@ import {Observable} from "rxjs";
 })
 export class ProductsComponent implements OnInit {
 
-  allProducts$: Observable<Product>;
+  products: Product[] = [];
+  deviceId: number;
 
-  constructor(private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {
+    this.route.params.subscribe(params => {
+      this.deviceId = params['deviceId'];
+    });
+    this.productService.getProductsList(this.deviceId).subscribe(
+      (res: Product[]) => {
+        this.products = res;
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -22,7 +33,7 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  edit(): void {
-    this.router.navigate(['/edit/product']);
+  edit(productId: number): void {
+    this.router.navigate(['/edit/product/'+productId]);
   }
 }

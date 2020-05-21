@@ -10,6 +10,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {EditDeviceComponent} from "./components/edit-device/edit-device.component";
 import {EditProductComponent} from './components/edit-product/edit-product.component';
 import {ProductsComponent} from './components/products/products.component';
+import {DeviceService} from "./services/device.service";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -26,17 +28,18 @@ import {ProductsComponent} from './components/products/products.component';
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot([
-      {path: 'details', component: DeviceDetailsComponent},
+      {path: 'details/:deviceId', component: DeviceDetailsComponent},
       {path: '', component: LoginComponent},
-      {path: 'user', component: MainPageComponent},
+      {path: 'user/:id', component: MainPageComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'products', component: ProductsComponent},
-      {path: 'edit/device', component: EditDeviceComponent},
-      {path: 'edit/product', component: EditProductComponent}
+      {path: 'products/:deviceId', component: ProductsComponent},
+      {path: 'edit/device/:id', component: EditDeviceComponent},
+      {path: 'edit/product/:id', component: EditProductComponent}
 
-    ])
+    ]),
+    FormsModule
   ],
-  providers: [],
+  providers: [DeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

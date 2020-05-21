@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {Observable} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Device} from "../../interfaces/device";
 import {DeviceService} from "../../services/device.service";
+import {LoginService} from "../../services/login.service";
 
 @Component({
   selector: 'app-main-page',
@@ -11,17 +11,26 @@ import {DeviceService} from "../../services/device.service";
 })
 export class MainPageComponent implements OnInit {
 
-  allDevice$: Observable<Device>;
+  devices: Device[] = [];
+  userId: number;
 
-  constructor(private router: Router, private deviceService: DeviceService) {
+  constructor(private route: ActivatedRoute,private router: Router, private deviceService: DeviceService) {
+    this.route.params.subscribe(params => {
+      this.userId = params['id'];
+    });
+    this.deviceService.getDevicesList(this.userId).subscribe(
+      (res : Device[]) => {
+        this.devices = res;
+      }
+    );
   }
 
   ngOnInit(): void {
-    this.allDevice$ = this.deviceService.getDevicesList(1);
+
   }
 
-  details(): void {
-    this.router.navigate(['/details']);
+  details(deviceId: number): void {
+    this.router.navigate(['/details/'+ deviceId]);
   }
 
   logout(): void {

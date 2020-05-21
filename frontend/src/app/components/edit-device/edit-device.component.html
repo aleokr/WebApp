@@ -8,27 +8,27 @@
     <form role="form">
       <div class="form-group">
         <h5>Numer id urządzenia</h5>
-        <output #id class="form-control" type="text" required="true">id urządzenia</output>
+        <output #id class="form-control" type="text" required="true">{{device.id}}</output>
       </div>
       <div class="form-group">
         <h5>Adres urządzenia</h5>
-        <input #address class="form-control" type="text" required="true">
+        <input [(ngModel)]="device.address" name ="device.address"  class="form-control" type="text" required="true">
       </div>
       <div class="form-group">
         <h5>Maksymalna pojemność</h5>
-        <input #maxCapacity class="form-control" type="text" required="true">
+        <input [(ngModel)]="device.maxCapacity" name ="device.maxCapacity"  class="form-control" type="text" required="true">
       </div>
       <div class="form-group">
         <h5>Urządzenie aktywne</h5>
-        <input #active class="form-control" type="checkbox" required="true">
+        <input [(ngModel)]="device.isActive" name ="device.isActive" class="form-control" type="checkbox" required="true" >
       </div>
       <div class="form-group">
         <h5>Ilość produktów w urządzeniu (obecnie)</h5>
-        <output #capacity class="form-control" type="text" required="true">123</output>
+        <output #capacity class="form-control" type="text" required="true">{{device.capacity}}</output>
       </div>
       <div class="form-group">
         <h5>Numer id właściciela urządzenia</h5>
-        <output #id class="form-control" type="text" required="true">id właściciela</output>
+        <output #id class="form-control" type="text" required="true">{{device.userId}}</output>
       </div>
       <button class="btn btn-danger btn-block" type=button  name="Zapisz zmiany">Zapisz zmiany</button>
     </form>
