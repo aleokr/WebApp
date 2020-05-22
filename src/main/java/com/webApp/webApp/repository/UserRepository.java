@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    @Query(value = "select count(*) from users where login = ? and password = ?", nativeQuery = true)
+    @Query(value = "select id from users where login = ? and password = ?", nativeQuery = true)
     int authenticate(String login, String password);
 
 }

@@ -1,0 +1,25 @@
+<div id="devicePanel" class="container">
+  <div>
+    <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
+  </div>
+  <div *ngFor="let product of products">
+    <h2>Numer produktu: {{product.id}} </h2>
+    <div>Nazwa produktu: {{product.name}}</div>
+    <div>Opis produktu: {{product.description}}</div>
+    <div>Cena: {{product.price}}</div>
+    <div>Data ważności: {{product.expireDate}}</div>
+    <div>
+      <button class="btn btn-danger btn-block" type="button" (click)="edit(product.id)" name="Edycja produktu">Edycja
+        produktu
+      </button>
+      <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="delete(product.id)">Usuń produkt </button>
+
+    </div>
+  </div>
+  <div>
+    <h1></h1>
+    <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="addNew()">Dodaj nowy
+      produkt
+    </button>
+  </div>
+</div>

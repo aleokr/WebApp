@@ -1,0 +1,36 @@
+<div id="devicePanel" class="container">
+  <div>
+    <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
+  </div>
+  <div class="form_div" *ngIf="product">
+
+    <h3>Edycja produktu</h3>
+    <form role="form">
+      <div class="form-group">
+        <h5>Numer id produktu</h5>
+        <output #id class="form-control" type="text" required="true" >{{product.id}}</output>
+      </div>
+      <div class="form-group">
+        <h5>Nazwa produktu</h5>
+        <input [(ngModel)]="product.name" name ="product.name" class="form-control" type="text" required="true" >
+      </div>
+      <div class="form-group">
+        <h5>Opis produktu</h5>
+        <input [(ngModel)]="product.description" name ="product.description" class="form-control" type="text" required="true" >
+      </div>
+      <div class="form-group">
+        <h5>Cena</h5>
+        <input [(ngModel)]="product.price" name ="product.price" class="form-control" type="text" required="true">
+      </div>
+      <div class="form-group">
+        <h5>Data ważności</h5>
+        <input [(ngModel)]="product.expireDate" name ="product.expireDate"  class="form-control" type="text" required="true">
+      </div>
+      <div class="form-group">
+        <h5>Numer id urządzenia</h5>
+        <output #id class="form-control" type="text" required="true">{{product.deviceId}}</output>
+      </div>
+      <button class="btn btn-danger btn-block" type="button" (click)="save()" name="Zapisz zmiany">Zapisz zmiany</button>
+    </form>
+  </div>
+</div>

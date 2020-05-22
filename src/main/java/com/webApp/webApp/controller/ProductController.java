@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/product")
+@CrossOrigin
 public class ProductController {
 
     @Autowired
@@ -30,9 +31,9 @@ public class ProductController {
         return productService.getProductsByDeviceId(deviceId);
     }
 
-    @PostMapping(path = "/changePrice/{id}/{price}")
-    public void changePriceOfProduct(@PathVariable Integer id, @PathVariable Float price) {
-        productService.changePriceOfProduct(id, price);
+    @PostMapping(path = "/updateProduct")
+    public Product updateProduct(@RequestBody ProductDTO dto) {
+        return productService.updateProduct(dto);
     }
 
     @DeleteMapping(path = "/deleteProduct/{id}")
@@ -42,6 +43,6 @@ public class ProductController {
 
     @PostMapping(path = "/addProduct")
     public void addProduct(@RequestBody ProductDTO dto) {
-        productService.addUser(dto);
+        productService.addProduct(dto);
     }
 }

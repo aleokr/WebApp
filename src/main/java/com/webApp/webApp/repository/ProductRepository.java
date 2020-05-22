@@ -15,10 +15,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> getProductsByDeviceId(Integer deviceId);
 
     @Modifying
-    @Query(value = "update products p set p.price = ?2 where p.id = ?1", nativeQuery = true)
-    int changePriceOfProduct(Integer id, Float price);
-
-    @Modifying
     @Query(value = "delete from products where id = ?", nativeQuery = true)
     int deleteProduct(Integer id);
 

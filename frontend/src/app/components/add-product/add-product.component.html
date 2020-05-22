@@ -1,0 +1,33 @@
+<div id="devicePanel" class="container">
+  <div>
+    <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
+  </div>
+  <div class="form_div" >
+
+    <h3>Dodawanie nowego produktu</h3>
+    <form role="form" *ngIf="deviceId">
+      <div class="form-group">
+        <h5>Nazwa produktu</h5>
+        <input #name class="form-control" type="text" required="true" >
+      </div>
+      <div class="form-group">
+        <h5>Opis produktu</h5>
+        <input #description class="form-control" type="text" required="true" >
+      </div>
+      <div class="form-group">
+        <h5>Cena</h5>
+        <input #price class="form-control" type="number" required="true">
+      </div>
+      <div class="form-group">
+        <h5>Data ważności</h5>
+        <input #expireDate  class="form-control" type="text" required="true">
+      </div>
+      <div class="form-group">
+        <h5>Numer id urządzenia</h5>
+        <output #id class="form-control" type="text" required="true">{{this.deviceId}}</output>
+      </div>
+      <button class="btn btn-danger btn-block" type="button" (click)="save(name.value, description.value, price.value, expireDate.value)" name="Zapisz zmiany">Zapisz zmiany</button>
+    </form>
+  </div>
+</div>
+

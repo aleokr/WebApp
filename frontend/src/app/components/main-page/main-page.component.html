@@ -1,0 +1,27 @@
+<div id="mainPanel" class="container">
+  <div>
+    <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
+  </div>
+  <div class="row-4">
+    <h1>Lista twoich urządzeń</h1>
+  </div>
+  <div>
+    <div *ngFor="let device of devices">
+      <h2>Urządzenie nr: {{device.id}}</h2>
+      <div>Status urządzenia: {{device.isActive}}</div>
+      <div>
+        <span>Lokalizacja: {{device.address}}</span>
+      </div>
+      <div>
+        <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="details(device.id)">Szczegóły
+          urządzenia
+        </button>
+        <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="delete(device.id)">Usuń urządzenie </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h1></h1>
+    <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="addNew()">Dodaj nowe urządzenie</button>
+  </div>
+</div>

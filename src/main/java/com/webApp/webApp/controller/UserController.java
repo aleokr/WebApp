@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/user")
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -19,18 +20,17 @@ public class UserController {
         return userService.getUserInfoById(id);
     }
 
-    @PutMapping(path = "/updateUser")
+    @PostMapping(path = "/updateUser")
     public void updateUser(@RequestBody UserDTO dto) {
         userService.updateUser(dto);
     }
 
     @GetMapping(path = "/authenticate/{login}/{password}")
-    public ResponseEntity authenticateUser(@PathVariable String login, @PathVariable  String password) {
-        int value = userService.authenticate(login, password);
-        if(value == 1){
-            return ResponseEntity.status(200).build();
-        }else{
-            return ResponseEntity.status(404).build();
+    public User authenticateUser(@PathVariable String login, @PathVariable String password) {
+        try {
+            return userService.authenticate(login, password);
+        } catch (Exception e) {
+            return null;
         }
     }
 }

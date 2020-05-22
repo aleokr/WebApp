@@ -1,0 +1,29 @@
+<div id="devicePanel" class="container">
+  <div>
+    <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
+  </div>
+  <div class="form_div" >
+
+    <h3>Dodawanie nowego urządzenia</h3>
+    <form role="form" *ngIf="userId">
+      <div class="form-group">
+        <h5>Adres urządzenia</h5>
+        <input #address class="form-control" type="text" required="true">
+      </div>
+      <div class="form-group">
+        <h5>Maksymalna pojemność</h5>
+        <input #maxCapacity   class="form-control" type="number" required="true">
+      </div>
+      <div class="form-group">
+        <h5>Urządzenie aktywne</h5>
+        <input #isActive  class="form-control" type="checkbox" required="true" checked>
+      </div>
+      <div class="form-group">
+        <h5>Numer id właściciela urządzenia</h5>
+        <output class="form-control" type="text" required="true">{{this.userId}}</output>
+      </div>
+      <button class="btn btn-danger btn-block" type="button" (click)="save(address.value, maxCapacity.value, isActive.checked)" name="Zapisz zmiany">Zapisz zmiany</button>
+    </form>
+  </div>
+</div>
+

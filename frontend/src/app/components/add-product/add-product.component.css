@@ -1,0 +1,18 @@
+button {
+  background: #67b5e9;
+  width: 200px;
+}
+
+.logout {
+  background: #c60606;
+  position: relative;
+  left: 940px;
+}
+input{
+  width: 250px;
+}
+
+output{
+  width: 250px;
+  background: darkgray;
+}
