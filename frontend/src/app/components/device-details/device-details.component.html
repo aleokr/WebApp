@@ -2,8 +2,8 @@
   <div>
     <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
   </div>
-  <div class="row">
-    <h2>Numer urządzenia: {{this.device.id}}</h2>
+  <div class="row" *ngIf="device">
+    <h2>Numer urządzenia: {{device.id}}</h2>
     <div>Status urządzenia: {{device.isActive}}</div>
     <div>Ilość dostępnych produktów: {{device.capacity}}</div>
     <div>Maksymalna liczba produktów: {{device.maxCapacity}}</div>

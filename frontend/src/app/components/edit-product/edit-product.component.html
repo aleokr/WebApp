@@ -2,13 +2,13 @@
   <div>
     <button class="logout" type="button" (click)="logout()" name="Szczegóły urządzenia">Wyloguj</button>
   </div>
-  <div class="form_div">
+  <div class="form_div" *ngIf="product">
 
     <h3>Edycja produktu</h3>
     <form role="form">
       <div class="form-group">
         <h5>Numer id produktu</h5>
-        <label #id class="form-control" type="text" required="true" >{{product.id}}</label>
+        <output #id class="form-control" type="text" required="true" >{{product.id}}</output>
       </div>
       <div class="form-group">
         <h5>Nazwa produktu</h5>
@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <h5>Numer id urządzenia</h5>
-        <label #id class="form-control" type="text" required="true">{{product.deviceId}}</label>
+        <output #id class="form-control" type="text" required="true">{{product.deviceId}}</output>
       </div>
       <button class="btn btn-danger btn-block" type="button" (click)="save()" name="Zapisz zmiany">Zapisz zmiany</button>
     </form>

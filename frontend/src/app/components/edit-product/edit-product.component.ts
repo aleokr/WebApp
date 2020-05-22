@@ -33,9 +33,7 @@ export class EditProductComponent implements OnInit {
   }
 
   save() : void{
-    console.log(this.product.name);
     this.productService.updateProduct(this.product);
     this.router.navigate(['/products/'+this.product.deviceId]);
-
   }
 }

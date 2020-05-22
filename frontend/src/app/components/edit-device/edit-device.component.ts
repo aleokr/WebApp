@@ -30,4 +30,8 @@ export class EditDeviceComponent implements OnInit {
   logout(): void {
     this.router.navigate(['/login']);
   }
+  save() : void{
+    this.deviceService.updateDevice(this.device);
+    this.router.navigate(['/user/'+this.device.userId]);
+  }
 }

@@ -14,12 +14,12 @@ export class MainPageComponent implements OnInit {
   devices: Device[] = [];
   userId: number;
 
-  constructor(private route: ActivatedRoute,private router: Router, private deviceService: DeviceService) {
+  constructor(private route: ActivatedRoute, private router: Router, private deviceService: DeviceService) {
     this.route.params.subscribe(params => {
       this.userId = params['id'];
     });
     this.deviceService.getDevicesList(this.userId).subscribe(
-      (res : Device[]) => {
+      (res: Device[]) => {
         this.devices = res;
       }
     );
@@ -30,11 +30,19 @@ export class MainPageComponent implements OnInit {
   }
 
   details(deviceId: number): void {
-    this.router.navigate(['/details/'+ deviceId]);
+    this.router.navigate(['/details/' + deviceId]);
   }
 
   logout(): void {
     this.router.navigate(['/login']);
   }
 
+  addNew(): void {
+    this.router.navigate(['/user/' + this.userId + '/addDevice']);
+  }
+
+  delete(deviceId: number): void {
+    this.deviceService.deleteDevice(deviceId).subscribe();
+    window.location.reload();
+  }
 }

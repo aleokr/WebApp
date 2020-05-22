@@ -12,6 +12,8 @@ import {EditProductComponent} from './components/edit-product/edit-product.compo
 import {ProductsComponent} from './components/products/products.component';
 import {DeviceService} from "./services/device.service";
 import {FormsModule} from "@angular/forms";
+import {AddDeviceComponent} from './components/add-device/add-device.component';
+import {AddProductComponent} from './components/add-product/add-product.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     EditDeviceComponent,
     EditProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    AddDeviceComponent,
+    AddProductComponent
   ],
   imports: [
     HttpClientModule,
@@ -34,7 +38,9 @@ import {FormsModule} from "@angular/forms";
       {path: 'login', component: LoginComponent},
       {path: 'products/:deviceId', component: ProductsComponent},
       {path: 'edit/device/:id', component: EditDeviceComponent},
-      {path: 'edit/product/:id', component: EditProductComponent}
+      {path: 'edit/product/:id', component: EditProductComponent},
+      {path: 'user/:userId/addDevice', component: AddDeviceComponent},
+      {path: 'device/:deviceId/addProduct', component: AddProductComponent}
 
     ]),
     FormsModule

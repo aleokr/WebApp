@@ -36,4 +36,13 @@ export class ProductsComponent implements OnInit {
   edit(productId: number): void {
     this.router.navigate(['/edit/product/'+productId]);
   }
+
+  addNew():void{
+    this.router.navigate(['device/'+this.deviceId+'/addProduct']);
+  }
+
+  delete(productId: number): void {
+    this.productService.deleteProduct(productId).subscribe();
+    window.location.reload();
+  }
 }

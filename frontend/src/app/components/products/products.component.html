@@ -9,8 +9,17 @@
     <div>Cena: {{product.price}}</div>
     <div>Data ważności: {{product.expireDate}}</div>
     <div>
-      <button class="btn btn-danger btn-block" type="button" (click)="edit(product.id)" name="Edycja produktu">Edycja produktu</button>
+      <button class="btn btn-danger btn-block" type="button" (click)="edit(product.id)" name="Edycja produktu">Edycja
+        produktu
+      </button>
+      <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="delete(product.id)">Usuń produkt </button>
+
     </div>
   </div>
-
+  <div>
+    <h1></h1>
+    <button class="btn btn-danger btn-block" type="button" name="Szczegóły urządzenia" (click)="addNew()">Dodaj nowy
+      produkt
+    </button>
+  </div>
 </div>

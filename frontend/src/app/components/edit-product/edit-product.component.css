@@ -4,8 +4,16 @@ button {
 }
 
 .logout {
-  background: #1c424f;
+  background: #c60606;
   position: relative;
   left: 940px;
 
+}
+input{
+  width: 250px;
+}
+
+output{
+  width: 250px;
+  background: darkgray;
 }
